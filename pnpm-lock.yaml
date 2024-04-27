@@ -8,16 +8,25 @@ importers:
 
   .:
     dependencies:
+      '@fontsource-variable/mulish':
+        specifier: ^5.0.19
+        version: 5.0.19
       react:
         specifier: ^18.2.0
         version: 18.3.1
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
+      react-router-dom:
+        specifier: ^6.23.0
+        version: 6.23.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       swr:
         specifier: ^2.2.5
         version: 2.2.5(react@18.3.1)
     devDependencies:
+      '@types/node':
+        specifier: ^20.12.7
+        version: 20.12.7
       '@types/react':
         specifier: ^18.2.66
         version: 18.3.1
@@ -32,7 +41,7 @@ importers:
         version: 7.7.1(eslint@8.57.0)(typescript@5.4.5)
       '@vitejs/plugin-react-swc':
         specifier: ^3.5.0
-        version: 3.6.0(vite@5.2.10)
+        version: 3.6.0(vite@5.2.10(@types/node@20.12.7))
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.19(postcss@8.4.38)
@@ -56,7 +65,7 @@ importers:
         version: 5.4.5
       vite:
         specifier: ^5.2.0
-        version: 5.2.10
+        version: 5.2.10(@types/node@20.12.7)
 
 packages:
 
@@ -224,6 +233,9 @@ packages:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
+  '@fontsource-variable/mulish@5.0.19':
+    resolution: {integrity: sha512-yUZdTpgr6HF1OmKU0SUQbiI1ZTbx48ybjZL7tfMwAt07SLA6JD8ax6+oppkqpITrOXKn0hBbWY2RtTxaUq6Bew==}
+
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
     engines: {node: '>=10.10.0'}
@@ -272,6 +284,10 @@ packages:
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
+
+  '@remix-run/router@1.16.0':
+    resolution: {integrity: sha512-Quz1KOffeEf/zwkCBM3kBtH4ZoZ+pT3xIXBG4PPW/XFtDP7EGhtTiC2+gpL9GnR7+Qdet5Oa6cYSvwKYg6kN9Q==}
+    engines: {node: '>=14.0.0'}
 
   '@rollup/rollup-android-arm-eabi@4.16.4':
     resolution: {integrity: sha512-GkhjAaQ8oUTOKE4g4gsZ0u8K/IHU1+2WQSgS1TwTcYvL+sjbaQjNHFXbOJ6kgqGHIO1DfUhI/Sphi9GkRT9K+Q==}
@@ -433,6 +449,9 @@ packages:
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
+
+  '@types/node@20.12.7':
+    resolution: {integrity: sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==}
 
   '@types/prop-types@15.7.12':
     resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
@@ -1093,6 +1112,19 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
+  react-router-dom@6.23.0:
+    resolution: {integrity: sha512-Q9YaSYvubwgbal2c9DJKfx6hTNoBp3iJDsl+Duva/DwxoJH+OTXkxGpql4iUK2sla/8z4RpjAm6EWx1qUDuopQ==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+
+  react-router@6.23.0:
+    resolution: {integrity: sha512-wPMZ8S2TuPadH0sF5irFGjkNLIcRvOSaEe7v+JER8508dyJumm6XZB1u5kztlX0RVq6AzRVndzqcUh6sFIauzA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8'
+
   react@18.3.1:
     resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
     engines: {node: '>=0.10.0'}
@@ -1234,6 +1266,9 @@ packages:
     resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
     engines: {node: '>=14.17'}
     hasBin: true
+
+  undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
 
   update-browserslist-db@1.0.13:
     resolution: {integrity: sha512-xebP81SNcPuNpPP3uzeW1NYXxI3rxyJzF3pD6sH4jE7o/IX+WtSpwnVU+qIsDPyk0d3hmFQ7mjqc6AtV604hbg==}
@@ -1406,6 +1441,8 @@ snapshots:
 
   '@eslint/js@8.57.0': {}
 
+  '@fontsource-variable/mulish@5.0.19': {}
+
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
       '@humanwhocodes/object-schema': 2.0.3
@@ -1458,6 +1495,8 @@ snapshots:
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
+
+  '@remix-run/router@1.16.0': {}
 
   '@rollup/rollup-android-arm-eabi@4.16.4':
     optional: true
@@ -1563,6 +1602,10 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
+  '@types/node@20.12.7':
+    dependencies:
+      undici-types: 5.26.5
+
   '@types/prop-types@15.7.12': {}
 
   '@types/react-dom@18.3.0':
@@ -1664,10 +1707,10 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-react-swc@3.6.0(vite@5.2.10)':
+  '@vitejs/plugin-react-swc@3.6.0(vite@5.2.10(@types/node@20.12.7))':
     dependencies:
       '@swc/core': 1.5.0
-      vite: 5.2.10
+      vite: 5.2.10(@types/node@20.12.7)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -2242,6 +2285,18 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
+  react-router-dom@6.23.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      '@remix-run/router': 1.16.0
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-router: 6.23.0(react@18.3.1)
+
+  react-router@6.23.0(react@18.3.1):
+    dependencies:
+      '@remix-run/router': 1.16.0
+      react: 18.3.1
+
   react@18.3.1:
     dependencies:
       loose-envify: 1.4.0
@@ -2413,6 +2468,8 @@ snapshots:
 
   typescript@5.4.5: {}
 
+  undici-types@5.26.5: {}
+
   update-browserslist-db@1.0.13(browserslist@4.23.0):
     dependencies:
       browserslist: 4.23.0
@@ -2429,12 +2486,13 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  vite@5.2.10:
+  vite@5.2.10(@types/node@20.12.7):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.16.4
     optionalDependencies:
+      '@types/node': 20.12.7
       fsevents: 2.3.3
 
   which@2.0.2:
