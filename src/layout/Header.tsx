@@ -26,7 +26,7 @@ export function Header() {
         'w-full overflow-hidden p-6',
         !isSmallDevice && 'flex justify-between',
         isSmallDevice && isOpen
-          ? 'flex justify-center border-b border-black/50 dark:border-white/50 mb-2'
+          ? 'flex justify-center border-b border-black/50 dark:border-white/50 mb-2 '
           : 'flex justify-between'
       )}
     >

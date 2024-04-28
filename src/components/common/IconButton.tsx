@@ -10,7 +10,7 @@ export function IconButton({ icon, className, onClick }: IconButtonProps) {
   return (
     <button
       className={cn(
-        'hover:bg-primary-400 hover:dark:bg-primary-700 hover: p-1 rounded-md mx-auto my-auto',
+        'hover:bg-card-foreground/10 hover:dark:bg-card/10 p-1 rounded-md mx-auto my-auto',
         className
       )}
       onClick={onClick}
