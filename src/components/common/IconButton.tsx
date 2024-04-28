@@ -9,7 +9,10 @@ interface IconButtonProps {
 export function IconButton({ icon, className, onClick }: IconButtonProps) {
   return (
     <button
-      className={cn('hover:bg-gray-400/20 p-1 rounded-md', className)}
+      className={cn(
+        'hover:bg-primary-400 hover:dark:bg-primary-700 hover: p-1 rounded-md mx-auto my-auto',
+        className
+      )}
       onClick={onClick}
     >
       {icon}
