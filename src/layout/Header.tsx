@@ -5,32 +5,42 @@ import { Geolocation } from '@/components/header/Geolocation'
 import { SaveLocation } from '@/components/header/SaveLocation'
 import { Search } from '@/components/header/Search'
 import { Theme } from '@/components/header/Theme'
+import { useMediaQuery } from '@uidotdev/usehooks'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const isSmallDevice = useMediaQuery('only screen and (max-width : 748px)')
+
   const handleOpenMenu = () => {
     setIsOpen(prev => !prev)
   }
 
-  const showNav = isOpen ? 'block' : 'hidden'
   return (
-    <header className={cn('my-4 mx-2', isOpen ? 'flex justify-center ' : 'flex justify-between')}>
-      <h3 className={cn(isOpen ? 'hidden' : 'block')}>weathr</h3>
-      <nav className='flex gap-x-2'>
-        <Geolocation className={showNav} />
-        <SaveLocation className={showNav} />
-        <Search className={showNav} />
-        <Theme className={showNav} />
+    <header
+      className={cn(
+        'my-4 mx-2',
+        !isSmallDevice && 'flex justify-between',
+        isSmallDevice && isOpen ? 'flex justify-center' : 'flex justify-between'
+      )}
+    >
+      <h3 className={cn(!isSmallDevice && 'block', isSmallDevice && isOpen ? 'hidden' : 'block')}>
+        weathr
+      </h3>
+      <nav className='flex gap-x-2 '>
+        <Geolocation className={cn('hidden md:block', isOpen && 'block')} />
+        <SaveLocation className={cn('hidden md:block', isOpen && 'block')} />
+        <Search className={cn('hidden md:block', isOpen && 'block')} />
+        <Theme className={cn('hidden md:block', isOpen && 'block')} />
 
         <button
-          className=''
           onClick={handleOpenMenu}
+          className={cn('md:hidden', isSmallDevice && isOpen ? 'block' : 'hidden')}
         >
-          <IconX className={showNav} />
+          <IconX />
         </button>
         <button
           onClick={handleOpenMenu}
-          className={cn(isOpen && 'hidden')}
+          className={cn('md:hidden', isSmallDevice && !isOpen ? 'block' : 'hidden')}
         >
           <IconMenu2 />
         </button>
