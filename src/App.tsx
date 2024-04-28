@@ -1,5 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
 import { Home, NotFound } from './pages'
+import { Layout } from '@/layout/Layout'
 
 const router = createBrowserRouter([
   {
@@ -13,7 +15,13 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-  return <RouterProvider router={router} />
+  return (
+    <>
+      <Layout>
+        <RouterProvider router={router} />
+      </Layout>
+    </>
+  )
 }
 
 export default App
