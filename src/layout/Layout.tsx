@@ -10,11 +10,12 @@ export function Layout({ children }: LayoutProps) {
   return (
     <>
       <Header />
+
       {children}
       <Toaster
         toastOptions={{
           classNames: {
-            toast: 'bg-primary-900 border-px border-primary-400',
+            toast: 'bg-primary border-px border-primary/80',
             title: 'text-white'
           }
         }}

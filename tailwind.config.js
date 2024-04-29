@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import animations from '@midudev/tailwind-animations'
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
@@ -6,24 +8,24 @@ export default {
     extend: {
       colors: {
         background: '#FFFFFF',
-        foreground: '#09090B',
+        foreground: '#0C0A09',
         card: '#FFFFFF',
-        'card-foreground': '#09090B',
+        'card-foreground': '#0C0A09',
         popover: '#FFFFFF',
-        'popover-foreground': '#09090B',
-        primary: '#18181B',
-        'primary-foreground': '#FAFAFA',
-        secondary: '#F4F4F5',
-        'secondary-foreground': '#18181B',
-        muted: '#F4F4F5',
-        'muted-foreground': '#71717A',
-        accent: '#F4F4F5',
-        'accent-foreground': '#18181B',
+        'popover-foreground': '#0C0A09',
+        primary: '#2563EB',
+        'primary-foreground': '#FAFAF9',
+        secondary: '#F5F5F4',
+        'secondary-foreground': '#1C1917',
+        muted: '#F5F5F4',
+        'muted-foreground': '#78716C',
+        accent: '#F5F5F4',
+        'accent-foreground': '#1C1917',
         destructive: '#EF4444',
-        'destructive-foreground': '#FAFAFA',
-        border: '#E4E4E7',
-        input: '#E4E4E7',
-        ring: '#18181B',
+        'destructive-foreground': '#FAFAF9',
+        border: '#E7E5E4',
+        input: '#E7E5E4',
+        ring: '#2563EB',
         radius: '0.5rem'
       },
       fontSize: {
@@ -41,5 +43,5 @@ export default {
       }
     }
   },
-  plugins: []
+  plugins: [animations]
 }
