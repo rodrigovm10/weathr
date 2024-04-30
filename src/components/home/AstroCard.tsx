@@ -5,7 +5,7 @@ import sunsetIcon from '../../../public/assets/sunset.svg'
 
 import { RealTimeWeather } from '@/types/types-rapidapi'
 
-export function Astro({ data }: { data: RealTimeWeather }) {
+export function AstroCard({ data }: { data: RealTimeWeather }) {
   const astroData = [
     {
       text: 'Moonrise',
@@ -30,7 +30,7 @@ export function Astro({ data }: { data: RealTimeWeather }) {
   ]
 
   return (
-    <article className='bg-slate-950 w-[95%] rounded-md p-2'>
+    <article className='bg-slate-950 rounded-xl p-2 w-full'>
       <h4 className='opacity-60 ml-4 mt-2'>Astro</h4>
       <section
         className='flex justify-center gap-x-4 items-center
@@ -44,7 +44,7 @@ export function Astro({ data }: { data: RealTimeWeather }) {
             <img
               src={astro.icon}
               alt=''
-              className='md:size-28'
+              className='md:size-20'
             />
             <div className='md:self-center'>
               <h5 className='opacity-80 text-[12px] md:text-sm text-center'>{astro.text}</h5>
