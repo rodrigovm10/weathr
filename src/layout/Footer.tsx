@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer>
+    <footer className=''>
       <p className='text-sm opacity-80 hover:opacity-100 text-center'>
         🚀 Built by{' '}
         <a

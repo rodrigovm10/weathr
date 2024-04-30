@@ -3,7 +3,7 @@ import { cn } from '@/libs/utils'
 interface IconButtonProps {
   icon: React.ReactNode
   onClick: () => void
-  className: string
+  className?: string
 }
 
 export function IconButton({ icon, className, onClick }: IconButtonProps) {

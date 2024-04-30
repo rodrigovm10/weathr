@@ -1,7 +1,7 @@
 export const URL_SEARCH = 'https://weatherapi-com.p.rapidapi.com/search.json?q='
 
 export const URL_FORECAST =
-  'https://weatherapi-com.p.rapidapi.com/forecast.json?q=San Luis de la Paz'
+  'https://weatherapi-com.p.rapidapi.com/forecast.json?q=San Luis de la Paz&days=5'
 
 export const OPTIONS = {
   method: 'GET',
