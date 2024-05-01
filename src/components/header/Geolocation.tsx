@@ -11,10 +11,12 @@ export function Geolocation({ className }: { className: string }) {
         position => {
           const lat = position.coords.latitude
           const lng = position.coords.longitude
-          console.log(`Latitude ${lat}, Longitud ${lng}`)
           toast('😄 Geolocation detected', {
             position: 'bottom-center'
           })
+          const newUrl = `/search/${lat},${lng}`
+          window.history.pushState({ path: newUrl }, '', newUrl)
+          window.location.reload()
         },
         error => {
           console.error('Error getting user location:', error)

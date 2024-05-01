@@ -7,6 +7,7 @@ import useSWR from 'swr'
 export function Search() {
   const location = useLocation()
   const search = location.pathname.split('/')[2]
+  console.log(search)
   const { data } = useSWR(`${URL_FORECAST}+${search}`, fetcher)
 
   if (!data) return
