@@ -1,7 +1,7 @@
 export function Footer() {
   return (
     <footer className=''>
-      <p className='text-sm opacity-80 hover:opacity-100 text-center'>
+      <p className='text-sm opacity-80 hover:opacity-100 text-center mt-10'>
         🚀 Built by{' '}
         <a
           className='underline'

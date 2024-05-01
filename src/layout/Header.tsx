@@ -14,7 +14,7 @@ const today = `Today, ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYea
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const isSmallDevice = useMediaQuery('only screen and (max-width : 748px)')
+  const isSmallDevice = useMediaQuery('only screen and (max-width : 768px)')
 
   const handleOpenMenu = () => {
     setIsOpen(prev => !prev)

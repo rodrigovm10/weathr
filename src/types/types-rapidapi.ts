@@ -4,6 +4,16 @@ export interface RealTimeWeather {
   current: Current
 }
 
+export interface SearchTimeWeather {
+  id: number
+  name: string
+  region: string
+  country: string
+  lat: number
+  lon: number
+  url: string
+}
+
 export interface Forecast {
   forecastday: Forecastday[]
 }

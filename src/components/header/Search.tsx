@@ -1,16 +1,30 @@
-import { IconSearch, IconX } from '@tabler/icons-react'
+import useSWR from 'swr'
+import { ChangeEvent, useState } from 'react'
+import { fetcherSearch } from '@/services/fetcher'
+import { URL_SEARCH } from '@/services/rapidapi-config'
+import { useDebounce } from '@uidotdev/usehooks'
+
 import { Aside } from '@/components/common/Aside'
+import { Button } from '@/components/common/Button'
 import { Tooltip } from '@/components/common/Tooltip'
 import { IconButton } from '@/components/common/IconButton'
-import { useState } from 'react'
-import { Button } from '../common/Button'
+import { IconSearch, IconX, IconMapPin } from '@tabler/icons-react'
 
 export function Search({ className }: { className: string }) {
   const [showSidebar, setShowSidebar] = useState(false)
+  const [search, setSearch] = useState('')
+  const debouncedSearchTerm = useDebounce(search, 300)
+  const { data } = useSWR(`${URL_SEARCH}+${debouncedSearchTerm}`, fetcherSearch)
 
   const handleClickBarOpen = () => {
     setShowSidebar(prevState => !prevState)
   }
+
+  const handleChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value
+    setSearch(value.toLowerCase())
+  }
+
   return (
     <>
       <Tooltip tooltip='Search'>
@@ -28,7 +42,27 @@ export function Search({ className }: { className: string }) {
               type='text'
               className='w-full bg-slate-900 text-white p-1 rounded border-2 border-muted-foreground/20 focus:ring-2 focus:ring-primary focus:border-primary text-sm outline-none'
               placeholder='Barcelona, Ohayo, Tokyo ...'
+              onChange={handleChangeSearch}
             />
+            <span className='block my-3 text-sm'>{data && `${data?.length} results`}</span>
+            <ul className='space-y-3 mb-4'>
+              {data?.map(location => (
+                <li
+                  key={location.id}
+                  className='rounded-sm border border-muted/30 pb-2'
+                >
+                  <a href={`/search/${location.url}`}>
+                    <div className='flex gap-x-2 ml-2 mt-2'>
+                      <IconMapPin className='size-4 self-center' />
+                      <h4 className='text-sm font-semibold'>{location.name}</h4>
+                    </div>
+                    <p className='text-sm text-left ml-3 opacity-80'>
+                      {location.region} - {location.country}
+                    </p>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </section>
           <Button
             icon={<IconX className='size-4 self-center' />}

@@ -1,7 +1,7 @@
-import moonriseIcon from '../../../public/assets/moonrise.svg'
-import moonsetIcon from '../../../public/assets/moonset.svg'
-import sunriseIcon from '../../../public/assets/sunrise.svg'
-import sunsetIcon from '../../../public/assets/sunset.svg'
+import moonriseIcon from '/assets/moonrise.svg'
+import moonsetIcon from '/assets/moonset.svg'
+import sunriseIcon from '/assets/sunrise.svg'
+import sunsetIcon from '/assets/sunset.svg'
 
 import { RealTimeWeather } from '@/types/types-rapidapi'
 
