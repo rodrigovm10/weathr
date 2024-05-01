@@ -5,8 +5,13 @@ import { URL_FORECAST } from '@/services/rapidapi-config'
 import { Main } from '@/components/home/Main'
 
 export function Home() {
-  localStorage.setItem('defaultLocation', 'San Luis de la Paz')
-  const defaultLocation = localStorage.getItem('defaultLocation')
+  let defaultLocation = 'San Luis de la Paz'
+
+  const localLocation = localStorage.getItem('defaultLocation')
+
+  if (localLocation) {
+    defaultLocation = localLocation
+  }
 
   const { data } = useSWR(`${URL_FORECAST}+${defaultLocation}`, fetcher)
 
