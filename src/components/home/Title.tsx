@@ -20,7 +20,7 @@ export function Title({ data }: { data: RealTimeWeather }) {
             icon={<IconHeart className='my-auto' />}
           />
         </Tooltip>
-        <SaveDefault />
+        <SaveDefault data={data} />
       </div>
     </section>
   )
