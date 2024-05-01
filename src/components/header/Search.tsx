@@ -1,29 +1,12 @@
-import useSWR from 'swr'
-import { ChangeEvent, useState } from 'react'
-import { fetcherSearch } from '@/services/fetcher'
-import { URL_SEARCH } from '@/services/rapidapi-config'
-import { useDebounce } from '@uidotdev/usehooks'
-
 import { Aside } from '@/components/common/Aside'
 import { Button } from '@/components/common/Button'
 import { Tooltip } from '@/components/common/Tooltip'
 import { IconButton } from '@/components/common/IconButton'
 import { IconSearch, IconX, IconMapPin } from '@tabler/icons-react'
+import { useSearch } from '@/hooks/useSearch'
 
 export function Search({ className }: { className: string }) {
-  const [showSidebar, setShowSidebar] = useState(false)
-  const [search, setSearch] = useState('')
-  const debouncedSearchTerm = useDebounce(search, 300)
-  const { data } = useSWR(`${URL_SEARCH}+${debouncedSearchTerm}`, fetcherSearch)
-
-  const handleClickBarOpen = () => {
-    setShowSidebar(prevState => !prevState)
-  }
-
-  const handleChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value
-    setSearch(value.toLowerCase())
-  }
+  const { data, showSidebar, handleChangeSearch, handleClickBarOpen } = useSearch()
 
   return (
     <>
