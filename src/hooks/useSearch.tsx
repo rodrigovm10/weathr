@@ -1,14 +1,15 @@
 import useSWR from 'swr'
 import { ChangeEvent, useState } from 'react'
+import { useDebounce } from '@uidotdev/usehooks'
 import { fetcherSearch } from '@/services/fetcher'
 import { URL_SEARCH } from '@/services/rapidapi-config'
-import { useDebounce } from '@uidotdev/usehooks'
 
 export function useSearch() {
   const [showSidebar, setShowSidebar] = useState(false)
   const [search, setSearch] = useState('')
+
   const debouncedSearchTerm = useDebounce(search, 300)
-  const { data } = useSWR(`${URL_SEARCH}+${debouncedSearchTerm}`, fetcherSearch)
+  const { data, isLoading } = useSWR(`${URL_SEARCH}+${debouncedSearchTerm}`, fetcherSearch)
 
   const handleClickBarOpen = () => {
     setShowSidebar(prevState => !prevState)
@@ -19,5 +20,5 @@ export function useSearch() {
     setSearch(value.toLowerCase())
   }
 
-  return { showSidebar, data, handleClickBarOpen, handleChangeSearch }
+  return { showSidebar, data, isLoading, handleClickBarOpen, handleChangeSearch }
 }

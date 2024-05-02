@@ -13,9 +13,14 @@ export function Home() {
     defaultLocation = localLocation
   }
 
-  const { data } = useSWR(`${URL_FORECAST}+${defaultLocation}`, fetcher)
+  const { data, isLoading } = useSWR(`${URL_FORECAST}+${defaultLocation}`, fetcher)
 
   if (!data) return
 
-  return <Main data={data} />
+  return (
+    <Main
+      data={data}
+      isLoading={isLoading}
+    />
+  )
 }

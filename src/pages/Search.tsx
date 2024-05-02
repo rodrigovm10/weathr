@@ -7,10 +7,14 @@ import useSWR from 'swr'
 export function Search() {
   const location = useLocation()
   const search = location.pathname.split('/')[2]
-  console.log(search)
-  const { data } = useSWR(`${URL_FORECAST}+${search}`, fetcher)
+  const { data, isLoading } = useSWR(`${URL_FORECAST}+${search}`, fetcher)
 
   if (!data) return
 
-  return <Main data={data} />
+  return (
+    <Main
+      data={data}
+      isLoading={isLoading}
+    />
+  )
 }

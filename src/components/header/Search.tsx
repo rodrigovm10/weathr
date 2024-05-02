@@ -1,13 +1,15 @@
+import { useSearch } from '@/hooks/useSearch'
+
 import { Aside } from '@/components/common/Aside'
 import { Button } from '@/components/common/Button'
 import { Tooltip } from '@/components/common/Tooltip'
+import { CardAside } from '@/components/common/CardAside'
 import { IconButton } from '@/components/common/IconButton'
 import { IconSearch, IconX, IconMapPin } from '@tabler/icons-react'
-import { useSearch } from '@/hooks/useSearch'
-import { CardAside } from '../common/CardAside'
+import { Loader } from '../common/Loader'
 
 export function Search({ className }: { className: string }) {
-  const { data, showSidebar, handleChangeSearch, handleClickBarOpen } = useSearch()
+  const { data, showSidebar, isLoading, handleChangeSearch, handleClickBarOpen } = useSearch()
 
   return (
     <>
@@ -32,21 +34,25 @@ export function Search({ className }: { className: string }) {
             <span className='opacity-60 hover:opacity-80 text-sm'>
               {data?.length === 0 && 'There are no results for your search.'}
             </span>
-            <ul className='space-y-3 mb-4'>
-              {data?.map(location => (
-                <CardAside data={location}>
-                  <a href={`/search/${location.url}`}>
-                    <div className='flex gap-x-2 ml-2 mt-2'>
-                      <IconMapPin className='size-4 self-center' />
-                      <h4 className='text-sm font-semibold'>{location.name}</h4>
-                    </div>
-                    <p className='text-sm text-left ml-3 opacity-70'>
-                      {location.region} - {location.country}
-                    </p>
-                  </a>
-                </CardAside>
-              ))}
-            </ul>
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <ul className='space-y-3 mb-4'>
+                {data?.map(location => (
+                  <CardAside data={location}>
+                    <a href={`/search/${location.url}`}>
+                      <div className='flex gap-x-2 ml-2 mt-2'>
+                        <IconMapPin className='size-4 self-center' />
+                        <h4 className='text-sm font-semibold'>{location.name}</h4>
+                      </div>
+                      <p className='text-sm text-left ml-3 opacity-70'>
+                        {location.region} - {location.country}
+                      </p>
+                    </a>
+                  </CardAside>
+                ))}
+              </ul>
+            )}
           </section>
           <Button
             icon={<IconX className='size-4 self-center' />}
