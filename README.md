@@ -49,3 +49,5 @@ pnpm install
 pnpm run dev
 ```
 
+## ⚖️ License
+- [MIT License](https://github.com/rodrigovm10/weathr/blob/main/LICENSE)
