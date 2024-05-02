@@ -1,6 +1,6 @@
 # weathr app
 ![image](https://github.com/rodrigovm10/weathr/assets/104101668/2aa4ba07-bbf8-42cc-835b-2f107f58cbcf)
-<p align="center">A beutiful weather app</p>
+<p align="center">A beautiful weather app</p>
 
 ## 👋 Introduction
 Welcome to our Weather App! Here are some of its key features:
