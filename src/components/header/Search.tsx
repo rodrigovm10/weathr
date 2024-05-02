@@ -29,6 +29,9 @@ export function Search({ className }: { className: string }) {
               onChange={handleChangeSearch}
             />
             <span className='block my-3 text-sm'>{data && `${data?.length} results`}</span>
+            <span className='opacity-60 hover:opacity-80 text-sm'>
+              {data?.length === 0 && 'There are no results for your search.'}
+            </span>
             <ul className='space-y-3 mb-4'>
               {data?.map(location => (
                 <CardAside data={location}>
