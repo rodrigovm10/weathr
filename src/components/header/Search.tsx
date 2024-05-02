@@ -4,6 +4,7 @@ import { Tooltip } from '@/components/common/Tooltip'
 import { IconButton } from '@/components/common/IconButton'
 import { IconSearch, IconX, IconMapPin } from '@tabler/icons-react'
 import { useSearch } from '@/hooks/useSearch'
+import { CardAside } from '../common/CardAside'
 
 export function Search({ className }: { className: string }) {
   const { data, showSidebar, handleChangeSearch, handleClickBarOpen } = useSearch()
@@ -30,20 +31,17 @@ export function Search({ className }: { className: string }) {
             <span className='block my-3 text-sm'>{data && `${data?.length} results`}</span>
             <ul className='space-y-3 mb-4'>
               {data?.map(location => (
-                <li
-                  key={location.id}
-                  className='rounded-sm border border-muted/30 pb-2'
-                >
+                <CardAside data={location}>
                   <a href={`/search/${location.url}`}>
                     <div className='flex gap-x-2 ml-2 mt-2'>
                       <IconMapPin className='size-4 self-center' />
                       <h4 className='text-sm font-semibold'>{location.name}</h4>
                     </div>
-                    <p className='text-sm text-left ml-3 opacity-80'>
+                    <p className='text-sm text-left ml-3 opacity-70'>
                       {location.region} - {location.country}
                     </p>
                   </a>
-                </li>
+                </CardAside>
               ))}
             </ul>
           </section>
