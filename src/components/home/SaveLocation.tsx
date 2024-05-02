@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { Location } from '@/types/types'
 import { cn, generateId } from '@/libs/utils'
 import { RealTimeWeather } from '@/types/types-rapidapi'
@@ -6,7 +7,6 @@ import { RealTimeWeather } from '@/types/types-rapidapi'
 import { IconHeart } from '@tabler/icons-react'
 import { Tooltip } from '@/components/common/Tooltip'
 import { IconButton } from '@/components/common/IconButton'
-import { useLocation } from 'react-router-dom'
 
 export function SaveLocation({ data }: { data: RealTimeWeather }) {
   const location = useLocation()
@@ -15,8 +15,8 @@ export function SaveLocation({ data }: { data: RealTimeWeather }) {
     if (!savedLocations) return false
 
     const savedLocationsArr: Location[] = JSON.parse(savedLocations)
-    const name = location.pathname.split('/')[2].split('-')[0]
-    const isInLocalStorage = savedLocationsArr.some(item => item.name.toLowerCase() === name)
+    const url = location.pathname.split('/')[2]
+    const isInLocalStorage = savedLocationsArr.some(item => item.url === url)
     return isInLocalStorage
   })
 

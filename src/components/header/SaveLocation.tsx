@@ -1,11 +1,6 @@
 import { useState } from 'react'
 
-import {
-  IconHeart,
-  IconDeviceFloppy,
-  IconX,
-  IconLayoutSidebarRightInactive
-} from '@tabler/icons-react'
+import { IconHeart, IconDeviceFloppy, IconX } from '@tabler/icons-react'
 import { Aside } from '@/components/common/Aside'
 import { Button } from '@/components/common/Button'
 import { Tooltip } from '@/components/common/Tooltip'
