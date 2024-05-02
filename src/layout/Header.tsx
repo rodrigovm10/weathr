@@ -31,7 +31,9 @@ export function Header() {
       )}
     >
       <div className={cn(!isSmallDevice && 'block', isSmallDevice && isOpen ? 'hidden' : 'block')}>
-        <h3 className='text-xl font-bold'>weathr</h3>
+        <h3 className='text-xl font-bold'>
+          <a href='/'>weathr</a>
+        </h3>
         <span className='text-sm opacity-60'>{today}</span>
       </div>
       <nav className='flex gap-x-2 '>

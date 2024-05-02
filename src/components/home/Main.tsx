@@ -12,7 +12,7 @@ export function Main({ data }: { data: RealTimeWeather }) {
   return (
     <main className='w-[80%] mx-auto'>
       <Title data={data} />
-      <section className='flex flex-col justify-center items-center bg-slate-900 w-full rounded-2xl p-4 mt-4 '>
+      <section className='flex flex-col justify-center items-center border dark:border-none bg-white text-black dark:text-white dark:bg-slate-900 w-full rounded-2xl p-4 mt-4 '>
         <h3 className='mx-auto mb-4'>Today Highlights</h3>
         <div className='grid grid-cols-2 lg:flex lg:justify-between gap-x-4 gap-y-4 mb-4 w-full'>
           <TemperatureCard data={data} />

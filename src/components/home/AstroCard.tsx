@@ -30,7 +30,7 @@ export function AstroCard({ data }: { data: RealTimeWeather }) {
   ]
 
   return (
-    <article className='bg-slate-950 rounded-xl p-2 w-full'>
+    <article className='border dark:border-none bg-white text-black dark:text-white dark:bg-slate-950 rounded-xl p-2 w-full'>
       <h4 className='opacity-60 ml-4 mt-2'>Astro</h4>
       <section
         className='flex justify-center gap-x-4 items-center

@@ -24,7 +24,7 @@ export function Search({ className }: { className: string }) {
           <section className='text-center mt-10'>
             <input
               type='text'
-              className='w-full bg-slate-900 text-white p-1 rounded border-2 border-muted-foreground/20 focus:ring-2 focus:ring-primary focus:border-primary text-sm outline-none'
+              className='w-full bg-white text-dark dark:bg-slate-900 dark:text-white p-1 rounded border-2 border-muted-foreground/20 focus:ring-2 focus:ring-primary focus:border-primary text-sm outline-none'
               placeholder='Barcelona, Ohayo, Tokyo ...'
               onChange={handleChangeSearch}
             />
